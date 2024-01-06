@@ -112,12 +112,12 @@ h1 {
 
 }
 
-.icon{
+.delete-icon{
   font-size: 35px;
   cursor: pointer;
 }
 
-.icon:hover{
+.delete-icon:hover{
   color: red;
 
 }
