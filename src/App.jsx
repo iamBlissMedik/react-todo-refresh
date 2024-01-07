@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { BsCheckLg } from "react-icons/bs";
 import "./App.css";
+import { useEffect } from "react";
 function App() {
   const [isCompleteScreen, setIsCompleteScreen] = useState(false);
   const [allTodos, setAllTodos] = useState([]);
@@ -17,6 +18,12 @@ function App() {
     setAllTodos(updatedTodoArr);
     localStorage.setItem("updated", JSON.stringify(updatedTodoArr));
   };
+  useEffect(() => {
+    let savedTodo = JSON.parse(localStorage.getItem("updated"));
+    if (savedTodo) {
+      setAllTodos(savedTodo);
+    }
+  }, []);
   return (
     <>
       <div className="app">
