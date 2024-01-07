@@ -13,8 +13,9 @@ function App() {
       description: newDescription,
     };
     let updatedTodoArr = [...allTodos, newTodoItem];
-   
+
     setAllTodos(updatedTodoArr);
+    localStorage.setItem("updated", JSON.stringify(updatedTodoArr));
   };
   return (
     <>
