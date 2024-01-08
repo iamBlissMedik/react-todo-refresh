@@ -20,8 +20,8 @@ function App() {
   };
   const handleDelete = (index) => {
     let reducedTodos = allTodos.filter((e, i) => i !== index);
-  
     setAllTodos(reducedTodos);
+    localStorage.setItem("updated", JSON.stringify(reducedTodos));
   };
   useEffect(() => {
     let savedTodo = JSON.parse(localStorage.getItem("updated"));
