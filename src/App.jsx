@@ -39,6 +39,7 @@ function App() {
     };
     let updatedCompletedArr = [...completedTodos, filteredObj];
     setCompletedTodos(updatedCompletedArr);
+    handleDelete(index);
   };
   useEffect(() => {
     let savedTodo = JSON.parse(localStorage.getItem("updated"));
