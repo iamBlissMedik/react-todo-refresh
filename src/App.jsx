@@ -15,7 +15,6 @@ function App() {
       description: newDescription,
     };
     let updatedTodoArr = [...allTodos, newTodoItem];
-
     setAllTodos(updatedTodoArr);
     localStorage.setItem("updated", JSON.stringify(updatedTodoArr));
   };
@@ -23,6 +22,11 @@ function App() {
     let reducedTodos = allTodos.filter((e, i) => i !== index);
     setAllTodos(reducedTodos);
     localStorage.setItem("updated", JSON.stringify(reducedTodos));
+  };
+  const handleDeleteCompleted = (index) => {
+    let reducedCompletedTodos = completedTodos.filter((e, i) => i !== index);
+    setCompletedTodos(reducedCompletedTodos);
+    localStorage.setItem("completed", JSON.stringify(reducedCompletedTodos));
   };
   const handleCompleted = (index) => {
     let now = new Date();
@@ -40,11 +44,16 @@ function App() {
     let updatedCompletedArr = [...completedTodos, filteredObj];
     setCompletedTodos(updatedCompletedArr);
     handleDelete(index);
+    localStorage.setItem("completed", JSON.stringify(updatedCompletedArr));
   };
   useEffect(() => {
     let savedTodo = JSON.parse(localStorage.getItem("updated"));
+    let savedCompletedTodo = JSON.parse(localStorage.getItem("completed"));
     if (savedTodo) {
       setAllTodos(savedTodo);
+    }
+    if (savedCompletedTodo) {
+      setCompletedTodos(savedCompletedTodo);
     }
   }, []);
   return (
@@ -129,7 +138,7 @@ function App() {
                       <div>
                         <AiOutlineDelete
                           className="delete-icon"
-                          onClick={() => handleDelete(index)}
+                          onClick={() => handleDeleteCompleted(index)}
                         />
                       </div>
                     </div>
