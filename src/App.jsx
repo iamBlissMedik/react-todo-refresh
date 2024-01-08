@@ -109,9 +109,10 @@ function App() {
               ? allTodos.map((todo, index) => {
                   return (
                     <div className="todo-list-item" key={index}>
-                      {" "}
-                      <h3>{todo.title}</h3>
-                      <p>{todo.description}</p>
+                      <div>
+                        <h3>{todo.title}</h3>
+                        <p>{todo.description}</p>
+                      </div>
                       <div>
                         <AiOutlineDelete
                           className="delete-icon"
@@ -129,12 +130,14 @@ function App() {
                   return (
                     <div className="todo-list-item" key={index}>
                       {" "}
-                      <h3>{todo.title}</h3>
-                      <p>{todo.description}</p>
-                      <p>
-                        {" "}
-                        <small>Completed on:</small> {todo.completedOn}
-                      </p>
+                      <div>
+                        <h3>{todo.title}</h3>
+                        <p>{todo.description}</p>
+                        <p>
+                          {" "}
+                          <small>Completed on:</small> {todo.completedOn}
+                        </p>
+                      </div>
                       <div>
                         <AiOutlineDelete
                           className="delete-icon"
